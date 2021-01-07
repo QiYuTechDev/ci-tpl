@@ -1,6 +1,10 @@
 trigger:
   - none
 
+#
+# https://github.com/actions/virtual-environments
+# OS images
+
 strategy:
   matrix:
     windows:
@@ -10,7 +14,7 @@ strategy:
       imageName: 'ubuntu-20.04'
       rustup_toolchain: stable
     macos:
-      imageName: 'macos-10.15'
+      imageName: 'macos-11.0'
       rustup_toolchain: stable
 
 pool:
