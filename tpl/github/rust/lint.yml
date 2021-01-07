@@ -1,7 +1,4 @@
-#
-# modify the bin name ${{ BIN_NAME }}
-#
-name: Rust
+name: Rust Lint
 
 on:
   push:
