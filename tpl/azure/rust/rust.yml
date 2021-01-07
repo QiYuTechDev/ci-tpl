@@ -34,7 +34,9 @@ steps:
     displayName: Windows install rust
     condition: eq( variables['Agent.OS'], 'Windows_NT' )
 
-  - script: cargo build
+  - script: |
+      cargo build
+    displayName: Cargo Build
 
   # https://docs.microsoft.com/zh-cn/azure/devops/pipelines/tasks/utility/publish-build-artifacts?view=azure-devops
   - task: PublishBuildArtifacts@1
