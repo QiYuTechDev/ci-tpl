@@ -21,7 +21,7 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Install Pylama
+      - name: Install Pytest
         run: |
           python -m pip install pytest
 
