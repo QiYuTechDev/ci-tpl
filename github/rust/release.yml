@@ -1,7 +1,7 @@
 #
 # modify the bin name ${{ BIN_NAME }}
 #
-name: Rust
+name: Release Build
 
 on:
   push:
@@ -23,18 +23,16 @@ jobs:
       - name: Rust Version
         run: rustc --version
       - name: Build
-        run: cargo build --verbose
-      - name: Run tests
-        run: cargo test --verbose
+        run: cargo build --release --verbose
       # upload unix
       - uses: actions/upload-artifact@v2
         if: strategy.os == 'windows-latest'
         with:
           name: ${{ matrix.os }}
-          path: target/debug/${{ BIN_NAME }}
+          path: target/release/${{ BIN_NAME }}
       # upload windows
       - uses: actions/upload-artifact@v2
         if: strategy.os != 'windows-latest'
         with:
           name: ${{ matrix.os }}
-          path: target/debug/${{ BIN_NAME }}.exe
+          path: target/release/${{ BIN_NAME }}.exe
