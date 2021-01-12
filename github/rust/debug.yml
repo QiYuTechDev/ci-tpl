@@ -1,6 +1,3 @@
-#
-# modify the bin name ${{ BIN_NAME }}
-#
 name: Debug Build
 
 on:
