@@ -24,15 +24,17 @@ jobs:
         run: rustc --version
       - name: Build
         run: cargo build --release --verbose
+
       # upload unix
       - uses: actions/upload-artifact@v2
-        if: strategy.os == 'windows-latest'
+        if: strategy.os != 'windows-latest'
         with:
           name: ${{ matrix.os }}
           path: target/release/${{ BIN_NAME }}
+
       # upload windows
       - uses: actions/upload-artifact@v2
-        if: strategy.os != 'windows-latest'
+        if: strategy.os == 'windows-latest'
         with:
           name: ${{ matrix.os }}
           path: target/release/${{ BIN_NAME }}.exe
