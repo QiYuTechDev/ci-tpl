@@ -1,6 +1,3 @@
-#
-# modify ${{ PROJECT_NAME }} to your python code src
-#
 name: pytest
 
 on:
