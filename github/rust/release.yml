@@ -1,6 +1,3 @@
-#
-# modify the bin name ${{ BIN_NAME }}
-#
 name: Release Build
 
 on:
@@ -11,6 +8,7 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
+  BIN_NAME: BINNAME
 
 jobs:
   build:
@@ -30,11 +28,11 @@ jobs:
         if: strategy.os != 'windows-latest'
         with:
           name: ${{ matrix.os }}
-          path: target/release/${{ BIN_NAME }}
+          path: target/release/${{ env.BIN_NAME }}
 
       # upload windows
       - uses: actions/upload-artifact@v2
         if: strategy.os == 'windows-2019'
         with:
           name: ${{ matrix.os }}
-          path: target/release/${{ BIN_NAME }}.exe
+          path: target/release/${{ env.BIN_NAME }}.exe
