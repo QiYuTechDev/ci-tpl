@@ -11,7 +11,7 @@ env:
 jobs:
   build:
     env:
-      IMAGE_NAME: ${{ APP_NAME }}:${{ github.event.release.tag_name }}
+      IMAGE_NAME: ${{ env.APP_NAME }}:${{ github.event.release.tag_name }}
       BUILD_DIR: .
 
     runs-on: ubuntu-20.04

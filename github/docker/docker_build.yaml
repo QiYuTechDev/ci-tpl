@@ -13,7 +13,7 @@ env:
 jobs:
   build:
     env:
-      IMAGE_NAME: ${{ APP_NAME }}:latest
+      IMAGE_NAME: ${{ env.APP_NAME }}:latest
       BUILD_DIR: .
 
     runs-on: ubuntu-20.04
