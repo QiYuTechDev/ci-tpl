@@ -5,13 +5,10 @@ on:
     types: [ created ]
 
 
-env:
-  APP_NAME: name
-
 jobs:
   build:
     env:
-      IMAGE_NAME: ${{ env.APP_NAME }}:${{ github.event.release.tag_name }}
+      IMAGE_NAME: {{ APP_NAME }}:${{ github.event.release.tag_name }}
       BUILD_DIR: .
 
     runs-on: ubuntu-20.04
